@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Update</title>
+</head>
+<body>
+
+<h1>Update</h1>
+
+<form action='Updser' method='post'>
+	Price:
+	<input type='text' onfocus="ppf()" onblur="ppc();" name='pric'></input> <span id='pp'></span> <br>
+	Description:
+	<input type='text' onfocus="pdf()" onblur="pdc();" name='desc'></input> <span id='pd'></span><br>
+	<input type='submit' value='Update'></input>
+</form> 
+
+<script>
+
+var httpObject = null;
+var pric;
+var desc;
+function getHTTPObject() {
+	if (window.ActiveXObject)
+		return new ActiveXObject("Microsoft.XMLHTTP");
+	else if (window.XMLHttpRequest)
+		return new XMLHttpRequest();
+	else {
+		alert("Your browser does not support AJAX.");
+		return null;
+	}
+}
+
+	httpObject = getHTTPObject();
+	if (httpObject != null) {
+		httpObject.open("POST", "Prics", true);
+		httpObject.send(null);
+		httpObject.onreadystatechange = setOutput1;
+	}
+	
+	httpObject2 = getHTTPObject();
+	if (httpObject2 != null) {
+		httpObject2.open("POST", "Descs", true);
+		httpObject2.send(null);
+		httpObject2.onreadystatechange = setOutput2;
+	}
+
+function setOutput1() {
+	if (httpObject.readyState == 4 && httpObject.status==200) {
+		//alert("total = " + httpObject.responseText);
+		pric = httpObject.responseText;
+	}
+}
+
+function setOutput2() {
+	if (httpObject2.readyState == 4 && httpObject2.status==200) {
+		//alert("total = " + httpObject.responseText);
+		desc = httpObject2.responseText;
+	}
+}
+
+	function ppc(){
+		document.getElementById('pp').innerHTML="";
+	}
+	
+	function pdc(){
+		document.getElementById('pd').innerHTML="";
+	}
+	
+	function ppf(){
+		document.getElementById('pp').innerHTML=pric;
+	}
+	
+	function pdf(){
+		document.getElementById('pd').innerHTML=desc;
+	}
+
+</script>
+
+</body>
+</html>

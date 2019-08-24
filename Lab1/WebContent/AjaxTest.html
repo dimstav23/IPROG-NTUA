@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function loadDoc(url) {
+	//μόνο γιο ΙΕ7+, Μοzilla, Opera klt…
+	xmlhttp=new XMLHttpRequest();
+	xmlhttp.open("GET",url,false);
+	xmlhttp.send(null);
+	document.getElementById('test').innerHTML=xmlhttp.responseText;
+}
+</script>
+</head>
+	<body>
+		<div id="test">
+			<h2>Click to let AJAX change this text</h2>
+		</div>
+		<input type="submit" value="Click" onclick="loadDoc('test1.txt')"/>
+	</body>
+</html>

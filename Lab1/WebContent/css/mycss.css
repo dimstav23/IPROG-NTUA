@@ -1,0 +1,24 @@
+           p       { background-color: yellow;                          
+                   }         
+                                        
+           h1       { font-family: tahoma, helvetica, sans-serif }        
+           .special { color: aqua; }
+           
+           p.kapws { color :fuchsia;}
+           
+           #div3
+		    {
+					text-align:center;
+					color:red;
+			} 
+			
+
+			body {
+			    background-color: olive; 
+			}
+			
+			#frame{
+				width: 80%;
+				height: 80%;
+			}
+			
